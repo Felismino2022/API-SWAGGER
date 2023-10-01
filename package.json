@@ -1,0 +1,26 @@
+{
+  "name": "typeScript_jwt_Typeorm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon --exec ts-node --files src/index.ts",
+    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
+    "@types/express": "^4.17.18",
+    "@types/jsonwebtoken": "^9.0.3",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17"
+  }
+}
