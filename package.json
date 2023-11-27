@@ -1,26 +1,31 @@
 {
-  "name": "typeScript_jwt_Typeorm",
+  "name": "API-DOC",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon --exec ts-node --files src/index.ts",
-    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
+    "start": "nodemon ./src/index.ts",
+    "dev": "nodemon --exec ts-node --files ./src/index.ts",
+    "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
+    "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run "
   },
   "license": "MIT",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.4",
     "@types/express": "^4.17.18",
     "@types/jsonwebtoken": "^9.0.3",
+    "@types/swagger-ui-express": "^4.1.6",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.6.1",
     "reflect-metadata": "^0.1.13",
+    "swagger-ui-express": "^5.0.0",
     "typeorm": "^0.3.17"
   }
 }

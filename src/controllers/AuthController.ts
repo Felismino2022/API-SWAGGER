@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import { AppDataSource } from '../database/connect'
+import { AppDataSource } from '../data-source'
 import User from '../models/User'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
