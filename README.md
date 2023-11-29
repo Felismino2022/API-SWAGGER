@@ -3,7 +3,7 @@ Api com node.js, utilizado o Swagger para documentar a mesma.
 
 ## Layout da Documentação
 
-![alt text](src/public/doc_api.png)
+![alt text](src/public/img/doc_api.png)
 
 # Framework
 Express.js
