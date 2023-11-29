@@ -1,1 +1,182 @@
-{}
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"Api de manipulação de Produtos",
+        "description":"Essa api tem como objectivo a manipulação dos produtos",
+        "termsOfService":"http://localhost:3033/terms",
+        "contact":{
+            "email":"muchombo2021@gmail.com"
+        },
+        "version":"1.0.0"
+    },
+    "servers":[
+        {
+            "url":"http://localhost:3033/v1",
+            "description":"Api teste"
+        }
+    ],
+    "paths":{
+        "/products":{
+            "post":{
+                "summary":"Cadastro de Usuario",
+                "description":"Essa rota será responsavel por cadastrar um novo producto",
+                "tags":["products"],
+                "security":[{
+                    "bearerAuth":[]
+                }],
+                "requestBody":{
+                    "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/components/schemas/Product"
+                        },
+                        "examples":{
+                            "product":{
+                                "value":{
+                                    "name":"arroz",
+                                    "price":40000
+                                }
+                            }
+                        }
+                    }
+                    }
+                },
+                "responses":{
+                    "400":{
+                        "description":"Falha ao cadastrar"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "200":{"description":"Cadastrado com Sucesso"}
+                }
+                
+            }
+        },
+        "/products/all":{
+            "get":{
+                "description":"Mostra todos os produtos existentes",
+                "summary":"Buscar todos os produtos",
+                "tags":["products"],
+                "responses":{
+                    "400":{"description":"Falha ao mostrar os productos"},
+                    "200":{
+                        "description":"ok",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "$ref":"#/components/schemas/Product"
+                            }
+                        }
+                    }
+                                    }
+                }
+            }
+        },
+        "/products/{id}":{
+            "get":{
+                "description":"Buscar um produto pelo id",
+                "summary":"Buscar um produto pelo id",
+                "tags":["products"],
+                "parameters":[
+                    {
+                    "name":"id",
+                    "in":"path",
+                    "description":"procurar producto pelo id",
+                    "required":true
+                    }
+                ],
+                "responses":{
+                    "400":{"description":"Producto não encontrado"},
+                    "200":{
+                        "description":"ok",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "$ref":"#/components/schemas/Product"
+                            }
+                        }
+                    }
+                                    }
+                }
+            },
+            "put":{
+                "description":"Alterar um produto pelo id",
+                "summary":"Alterar um produto pelo id",
+                "tags":["products"],
+                "security":[{
+                    "bearerAuth":[]
+                }],
+                "parameters":[
+                    {
+                    "name":"id",
+                    "in":"path",
+                    "description":"procurar producto pelo id",
+                    "required":true
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/components/schemas/Product"
+                        },
+                        "examples":{
+                            "product":{
+                                "value":{
+                                    "name":"Fuba de bombo",
+                                    "price":10000
+                                }
+                            }
+                        }
+                    }
+                    }
+                },
+                "responses":{
+                    "400":{"description":"Falha ao actualizar"},
+                    "401":{"description":"Unauthorized"},
+                    "200":{
+                        "description":"ok",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "$ref":"#/components/schemas/Product"
+                            }
+                        }
+                    }
+                                    }
+                }
+            }
+        }
+    },
+    
+    "components":{
+        "schemas":{
+            "Product":{
+                "type":"object",
+                "properties":{
+                    "name":{
+                        "type":"string"
+                    },
+                    "price":{
+                        "type":"number"
+                    },
+                    "id":{
+                        "type":"number"
+                    }
+                }
+            }
+        },
+        "securitySchemes":{
+            "bearerAuth":{
+                "type":"http",
+                "scheme":"bearer",
+                "bearerFormat":"JWT"
+            }
+        }
+    }
+
+}

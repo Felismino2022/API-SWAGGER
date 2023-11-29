@@ -15,7 +15,7 @@ AppDataSource.initialize().then(async () => {
 
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-    app.get("terms", (request, response) => {
+    app.get("/terms", (request, response) => {
         return response.json({
             message:"termos de serviço"
         })

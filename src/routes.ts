@@ -9,10 +9,10 @@ const routes = Router()
 routes.post('/users/register', UserController.register)
 routes.post('/login', AuthController.authenticate)
 
-routes.post('/products/register', ProductController.register)
-routes.get('/products/all', auth, ProductController.getAll)
+routes.post('/products', auth, ProductController.register)
+routes.get('/products/all', ProductController.getAll)
 routes.get('/products/:id', ProductController.show_product)
-routes.put('/products/:id', ProductController.update)
+routes.put('/products/:id',auth, ProductController.update)
 
 
 

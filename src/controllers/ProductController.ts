@@ -17,6 +17,10 @@ class ProductController{
             return res.json({
                 message:"Producto cadastrado com sucesso"
             })
+          }else{
+            return res.status(400).json({
+                message:"falha ao cadastrar o producto"
+            })
           }
     }
 
@@ -51,7 +55,7 @@ class ProductController{
             return res.json({message: "Actualizado com sucesso"})
         }else{
             return res.status(400).json({
-                message:"Actualizado com sucesso"
+                message:"Falha ao actualizar"
             })
         }
     }
