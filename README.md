@@ -1,5 +1,5 @@
 # API-DOCUMENTATION
-Api com node.js, utilizado o Swagger para documentar a mesma.
+Api com node.js e autenticação com JWT, utilizado o Swagger para documentar a mesma.
 
 ## Layout da Documentação
 
